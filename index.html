@@ -26,7 +26,6 @@
 </style>
 
 <body style="margin : 0px; overflow: hidden;">
-  <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
@@ -35,18 +34,14 @@
   <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
     arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
     <a-assets>
-      <!-- include the image tracking data -->
-      <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
-      <video id="video"
-      src="https://s3.ap-south-1.amazonaws.com/img.nularksolutions.com/Hubplus-Afrisummit/images/auditoriumEntrance.mp4"
-      autoplay loop crossorigin="anonymous" webkit-playsinline muted></video>
+      <video id="video" preload="auto" response-type="arraybuffer" loop crossorigin webkit-playsinline autoplay muted
+        playsinline
+        src="./assets/Panchayat Season 3 - Official Trailer _ Jitendra Kumar, Neena Gupta, Raghubir Yadav _ May 28.mp4"></video>
     </a-assets>
-    <!-- a-nft is the anchor that defines an Image Tracking entity -->
-    <!-- src="./assets/videoplayback.mp4" -->
-    <!-- on 'url' use the path to the Image Descriptors created before. -->
-    <!-- the path should end with the name without the extension e.g. if file is 'pinball.fset' the path should end with 'pinball' -->
-    <a-nft type="nft" url="./assets/demo" smooth="true" smoothCount="10"
-      smoothTolerance=".01" smoothThreshold="5">
+    <!-- src="https://s3.ap-south-1.amazonaws.com/img.nularksolutions.com/Hubplus-Afrisummit/images/auditoriumEntrance.mp4" -->
+    <a-nft type="nft"
+     url="./assets/demo" 
+     smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
       <!-- as a child of the a-nft entity, you can define the content to show. here's a GLTF model entity -->
       <!-- <a-entity
         gltf-model="/"
@@ -54,9 +49,10 @@
         position="50 150 0"
       >
       </a-entity> -->
-      <a-video src="#video" position="90 100 -100" width="400" height="400"></a-video>
+      <a-video src="#video" rotation="-90 0 0" position="50 150 -100" width="200" height="200"></a-video>
     </a-nft>
     <!-- static camera that moves according to the device movemenents -->
     <a-entity camera></a-entity>
   </a-scene>
+ 
 </body>
